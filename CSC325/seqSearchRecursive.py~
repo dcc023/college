@@ -1,0 +1,6 @@
+#Create a seqSearch that utilizes recursion. Practice of changing for loop
+# to a recursive "loop" HOMWOK
+
+def seqSearch(E, num, k):
+    seqSearchRec(E, 0, num, k)
+def seqSearchRec(E, index, num, k):

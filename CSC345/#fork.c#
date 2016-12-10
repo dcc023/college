@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+
+int main(int argc, char **argv)
+{
+  char *name = argv[0];
+  int pid = fork();
+  if (pid < 0)
+    {
+      perror("failure");
+      exit(1);
+    }
+  else if (pid == 0) //Child
+    {
+      char* args[] = {"./",
+      execv()
+    }
+}

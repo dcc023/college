@@ -1,0 +1,33 @@
+Script started on Tue 23 Feb 2016 09:46:01 PM CST
+]0;sendou@Takeshi: ~/Documents/College/CSC222/SimpleShellsendou@Takeshi:~/Documents/College/CSC222/SimpleShell$ ./Shanty.o
+Welcome to the Shanty Shell!
+Type info for more info 
+~ ls
+execvp1.c~  README~	Shanty.o       ShantyShell.c~  Untitled Document
+README	    Shanty.exe	ShantyShell.c  typescript      wow.c~
+~ info
+Welcome to the Shanty Shell by Dylan Campbell
+This program works almost exactly like the normal Unix shell! 
+ BUT WITH WAY LESS FUNCTIONALITY! 
+ 
+ All of the builtin commands we got here are cd, pwd, exit, and well.. info. 
+We've also ripped off all the non-builtins, so you can just use man and search whatever. 
+~ cat     ls -l
+total 60
+-rw------- 1 sendou sendou   137 Feb  3  2014 execvp1.c~
+-rw-rw-r-- 1 sendou sendou   644 Feb 23 21:42 README
+-rw-rw-r-- 1 sendou sendou     0 Feb 23 21:26 README~
+-rwxrwxr-x 1 sendou sendou 14022 Feb 23 21:38 Shanty.exe
+-rwxrwxr-x 1 sendou sendou 14022 Feb 23 21:39 Shanty.o
+-rw-rw-r-- 1 sendou sendou  5369 Feb 23 21:36 ShantyShell.c
+-rw-rw-r-- 1 sendou sendou  5285 Feb 23 21:29 ShantyShell.c~
+-rw-rw-r-- 1 sendou sendou     0 Feb 23 21:46 typescript
+-rw-rw-r-- 1 sendou sendou     0 Feb 23 21:26 Untitled Document
+-rw-rw-r-- 1 sendou sendou    40 Feb 23 18:34 wow.c~
+~ cd
+You cannot change directory to nothingness, idiot.. 
+~ exit
+]0;sendou@Takeshi: ~/Documents/College/CSC222/SimpleShellsendou@Takeshi:~/Documents/College/CSC222/SimpleShell$ exit
+exit
+
+Script done on Tue 23 Feb 2016 09:47:57 PM CST

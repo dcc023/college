@@ -1,0 +1,10 @@
+# Design an algorithm that is able to min/max comparison with
+# (3n/2) - 2 comparisons.
+# Can use list, python. Need to set a performance counter to
+# count how many comparisons you do. So that at the end we can
+# check if we are meeting our comparison goal of 3n/2 - 2.
+#
+# import random : imports a library that lets you use random numbers
+# random.randrange(n): chooses "random" number from 0 to n.
+# L = [random.randrange(100) for _ in range(100)]: creates array
+# filled with integers from 0 to 100 scrambled in the array.

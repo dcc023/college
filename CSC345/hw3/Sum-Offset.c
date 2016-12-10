@@ -1,0 +1,22 @@
+#include <stdio.h>
+#define NUM_LOOPS 500000 //This constant is, like, SUPER constant
+
+long long sum = 0; //Long Dong Schlong Sum, makes even longer
+
+void counting_function(int offset) //A function that takes an int as a parameter, offset.
+{
+	for(int i=0; i<NUM_LOOPS; i++) //A for loop, we can see this'll go, like, 500000 times as i increases.
+	{
+
+	sum=sum+offset; //Wait...sum? Offset? This is a fucking times table. 2 4 6 8 10 12 or 5 10 15 20 25 30.
+
+	}
+}
+
+
+int main(void)
+{
+	counting_function(1); //For our example we'll """offset""" by 1. As in...count by one.
+	printf("Sum = %lld\n", sum); //Thankfully, that sum is a global variable, so we can use it here. Use %lld to show sum has a long long dick.
+	return 0; //Aaaaand done.
+}

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+foo=10
+x=foo
+exit 0
+

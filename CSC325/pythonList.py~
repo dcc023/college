@@ -1,0 +1,89 @@
+# intList def
+
+class IntList:
+    def __init__(self, iL = []):
+        self.aList = iL
+        
+    def cons(self, newElem):
+        return IntList([newElem] + self.aList[:])
+    
+    def first(self):
+        return self.aList[0]
+
+    def rest(self):
+        return IntList(self.aList[1:])
+
+    @property
+    def nil(self):
+        return len(self.aList) == 0
+        
+    def __str__(self):
+        return str(self.aList)
+
+
+# def object
+
+al = IntList()
+
+al = al.cons(7)
+al = al.cons(6)
+al = al.cons(5)
+al = al.cons(4)
+
+print(al.first())
+print(al.rest())
+print(al.nil)
+
+print("Print list!!")
+
+# Print every item from list ONLY using these funcs
+
+def printL(al):
+
+    while not al.nil:
+
+        print(al.first())
+
+        al = al.rest()
+
+printL(al)
+
+#HW assuming int list, that could be empty or contian something, task is to find whether a key is in there or not. If there, return true, if not return  false.
+def findKey(al, key):
+    
+    ans = False
+    while not al.nil:
+        
+        if (al.first() == key):
+            ans = True
+            break
+
+        al = al.rest()
+    
+    return ans #ONE WAY OUT
+
+#Testing!
+
+print(findKey(al, 5))
+
+
+#recursive keysearch
+def rfindKey(al, key):
+    
+    if al.nil:
+        return False
+    elif (al.first() == key):
+        return True
+    else:
+        al = al.rest()
+        ans = rfindKey(al,key)
+
+    return ans
+
+#testing
+print(rfindKey(al, 4))
+print(rfindKey(al, 9))
+print(rfindKey(al, 1))
+print(rfindKey(al, 7))
+
+
