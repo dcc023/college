@@ -1,0 +1,276 @@
+BASH YE FAUCKIN EAD IN M8 PROGRAMMIN WOT INNIT
+===============================================================================================================================================
+
+To begin with, here's the most basic tools:
+
+		#!/bin/bash
+		^^ THIS IS HOW ALL YOUR PROGRAMS WILL START. Now, you can use BASH commands in your shell script.
+=======================================================================================
+
+		echo _______
+		^^ Repeats a thing. Basically a printf before printf was cool.
+=======================================================================================
+
+		_____=_____
+		^^ VARIABLE ASSIGNMENT. It's like python. You just name, assign and go.
+		>>FORMAT: VAR_NAME=WOT_IT_EQUALS_M8
+		>>NO SPACES.
+		**SEE HERE**
+			>>Variables with spaces need "". So VAR_NAME="THIS SHIT NEEDS QUOTES WOT WOT"
+=======================================================================================
+
+		$VAR_NAME
+		^^ Reads the value of a variable.
+		>> Do yourself a favor and, if you use a variable with a program, like, say, ls or summat:
+		"$VAR_NAME"
+		>> Put it in quotes. Say $VAR_NAME contains a string that's a directory. ls reads that string as a directory, right? So:
+		ls "$VAR_NAME"
+		>> And ls will read whatever is in $VAR_NAME as a string that it can interpret as a directory I guess????
+
+		CRUCIAL: THINK OF "$" AS JUST SAYING "VALUE OF"
+		So: VALUE OF VAR_NAME
+		And: VALUE OF THE EXPRESSION OF VAR_NAME + 5
+		And: VALUE OF ls VALUE OF VAR_NAME [Written as: $(ls "$VAR_NAME") Yes, you can access output as a value of. Don't ask me why
+			programs need quotes on variables. They just do. Using qoutes on variables doesn't seem to hurt TOO much, so it's a
+			safe bet to just write all variable accessors with quotes, aye?
+=======================================================================================
+
+		if [____]
+		then
+		____
+		else
+		___
+		fi
+		^^ Basic if statements. SPACE BETWEEN IF AND [__] NEEDED
+=======================================================================================
+
+		if [___]; then
+		____
+		elif [___]; then
+		___
+		else
+		___
+		fi
+		^^ Another way to write it, this time with simple elifs (else-if). SPACE BETWEEN ELIF AND [___] NEEDED.
+=======================================================================================
+
+		read VAR_NAME
+		^^ Lets you assign a variable...by letting the user dictate it. >:3
+		**NOTE**
+		Not to worry too much about this data type and that. That'll be all sorted and taken care of.
+=======================================================================================
+
+		for _____
+		do
+		   _____
+		done
+		^^ Basic For loop structure. The things a for loop can check for get crazy, so we'll get to that later.
+=======================================================================================
+
+		while ____
+		do
+		      ___
+		done
+		^^ Basic while loop. I assume it works on similar structures to for.
+=======================================================================================	
+
+		until ____
+		do
+		      ____
+		done
+		^^
+=======================================================================================
+
+                case "$VAR_NAME" in
+           		case1) _________;;
+			case2) _________;;
+			case3|case3b) _________;;
+			cas*4) _________;;
+			*) DEFAULT_ACTION;;
+		esac
+                ^^ Here's a rundown:
+		--case1-caseN is just detailing different values the VAR_NAME can take.
+
+		--;; is just detailing the end of a case
+
+		--*) is for any other case.
+
+		--'in' actually just means 'is'. Case VAR_NAME is "THIS".
+
+		--| puts another case/value to the same response, grouping them together. IT IS NOT PIPING.
+
+		--cas*4 looks for any input that starts with "cas" and ends in "4". Good for catch-alls.
+
+		--esac is the end of the case statement. Get it? It's 'case' backwards.
+
+=======================================================================================
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+THE FOR LOOP ASSUMPTIONS
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+=======================================================================================
+	Here is our structure:
+
+	for _____
+	do
+	    _____
+	done
+
+	Now, the for loop can take many kinds of arguments, all of them making no sense.
+
+
+	>>>for VAR_NAME in SOMETHING
+		The VAR_NAME can be named anything, and it's assigned to whatever SOMETHING is in-sequence.
+		Basically, the SOMETHING should provide a list for the for to go down, assigning the VAR_NAME to each thing and testing.
+
+		EXAMPLE:
+		for DISDICK in 1 2 3 4 5
+		do
+		    echo "SHITE"
+		    echo $DISDICK
+		done
+
+		The 1 2 3 4 5 is a list of values for DISDICK to go down.
+		There are 5 values, so this program prints SHITE 5 times.
+		As we're echoing $DISDICK (Reading the value of the variable itself) we see that DISDICK takes on the value of each item in the list one at a time.
+		So DISDICK equals 1, then 2, then 3, then 4, and finally 5. Once DISDICK has equaled all the values at least once, the for loop is finished.
+
+		We can get the program to print out SHITE 5 times a different way.
+
+		for DISDICK in 1 1 1 1 1
+		do
+			echo "SHITE"
+			echo $DISDICK
+		done
+
+		Here, we just have 5 1s. We'll see the program prints "SHITE" five times, as there's five values in the list. However, DISDICK will be 1 during each
+		iteration, replacing old 1s with new 1s in the list until the list in empty.
+
+		Here is what I think is a good example:
+		
+		for DISDICK in ls /home/ducky/Codin\ n\ That/CSC220/
+		do
+        		echo "SHITE"
+        		echo $DISDICK
+		done
+
+		As you can see, this brings ls into the mix, the classic program that lists everything in a directory. There's a problem, however, in how this is
+		written. We expect this program to run the ls program, which will provide a list of files in the given directory, and that list can be used for the
+		for loop. However, there's only 2 values here. It will instead print:
+		
+		SHITE
+		ls
+		SHITE
+		/home/ducky/Codin\ n\ That/CSC220/
+		
+		and then end. See, we did not get the VALUE of ls's program. Instead, we just gave the for loop some arbitrary strings to run through as a list.
+		In order to use the VALUE of ls's output, we need:
+
+		$()
+
+		This will capture the VALUE or OUTPUT of a function/program's runtime...and run it to begin with:
+
+                for DISDICK in $(ls /home/ducky/Codin\ n\ That/CSC220/)
+                do
+                        echo "SHITE"
+                        echo $DISDICK
+                done
+
+		Now it's fixed and this program will print SHITE for every file in that directory, and DISDICK will equal the name of the file the for loop is 
+		currently on.
+
+=======================================================================================
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+THE VARIABLE DIRECTORIES FOR BASH PROGRAMS
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+=======================================================================================
+
+	Listen here, you little cockshite. If you put spaces in your directories, you're in for some deep shit now.
+	
+	So, you what if you want to store a directory path into a variable and then use that variable in a program, like ls?
+
+	so, here, look:
+	
+	#!/bin/bash
+	THE_DIR=$(pwd) 		<<So we assign a variable THE_DIR to the value of PRINT WORKING DIRECTORY.
+	ls $THE_DIR
+	exit 0
+
+	Will this work? NO. IT WON'T. YOU GOTTA DO THIS:
+
+	ls "$THE_DIR"
+
+	Put em' in QUOTES. The value of whatever has to be put in QUOTES.
+
+	Same with cd and mv and rm and whatever
+	cd "$THE_DIR"
+	mv "$THE_DIR"
+	WHATEVER
+
+	Okay, but, look at this:
+
+	CURRDRR=/home/ducky/Codin\ n\ That/CSC220/
+	for foo in $(ls "$CURRDRR")
+	do
+        	echo "Shite"
+        	echo $foo
+	done
+
+	Will this work? LOOK AT CURRDRR! It's not in quotes! But it's got SPACES. This can't WORK AT ALL.
+	EXCEPT THAT IT DOES.
+	You know why?
+
+	\
+
+	That thing. \
+
+	\ denotes special characters to be used in-context and not as a special character. In fact, putting this in quotes WILL NOT WORK as ls will be unable
+	to seperate the output. It's all mushed together and can't be picked apart when it's in quotes.
+	so:
+	\ and a space is okay, because it makes the compiler NOT read the space as a special character...space is "Split" I guess?
+
+=======================================================================================
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+SUPES IMPORTANT VARIABLES
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+=======================================================================================
+
+>>> ARGUMENT VARIABLES <<<
+***NOTE*** Arguments are: -a -f -l, shit like that.
+	$# >> Number of imput variables. So ./This.sh -g -d ; $# would equal 2, because there's 2 arguments.
+	$@ >> Argument iterative list. A list of all the arguments. ./This.sh -f -a ; $@ would equal -f -a.
+	$* >> Entire Arg List. Seemingly the same as $@, but perhaps prints them differently or shows some kind of hidden arguments.
+	$1 and $2 and $3 and etc >> Positions of arguments. So ./This.sh -f -a -r ; $1 = -f ; $2 = -a ; $3 = -r.
+		>>***NOTE*** <<THE shift COMMAND SHIFTS THE PARAMETERS. So, look at this:
+		echo $1
+		shift
+		echo $1
+		
+		You would THINK this would print the same parameter twice, but no! In ./This.sh -a -g, it will first print -a, then it will shift and print -g.
+		This is PERFECT for loops! Know that this shifts the WHOLE list of arguments. SO ARGS ARE DEFINED BY THE SHELL.
+	
+	$HOME >> Home directory...INCLUDING THE USER DIRECTORY. So it's /home/ducky!!!!!
+=======================================================================================
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+SUPES IMPORTANT COMMANDS
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+=======================================================================================
+
+>>> shift >>> This just shifts the parameter list, as seen above. As said before, $1-9 or $n points to arguments passed in the CLI. shift makes all $n into $n-1. Also decreases $# count.
+
+>>> -d >>> "equals directory". PERFECT for if statements, where you can see if a passed argument is a directory.
+	like so:
+	PASSED_ARG = $1  <<Puts whatever is in $1 into a variable called PASSED_ARG
+	if [-d "$PASSED_ARG"]; then  <<the -d checks if what's in THE VALUE of PASSED_ARG is a directory. Remember the quotes, because I think if is a program, and those spaces in a directory can
+					be mighty shifty. "$____" is how you must write ALL variables, to be safe.
+
+>>> -f >>> "equals file". The same as -d, only it checks if it's a file.
+
+>>> expr >>> EXPRESS. This is the only way to mathematically evaluate numbers.

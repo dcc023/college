@@ -1,0 +1,209 @@
+HANDY DANDY TERMINAL GUIDE
+=================================================================================================================
+FOR FEDORA WEARING SCRUBLORDS.
+ 
+TO START:
+>> = COMMAND INPUTTING SOMETHING INTO SOMETHING ELSE. IE: ls >>> Penis.txt. Ls's results are put in the .txt, not the console.
+<< = SOMETHING GOING INTO THE COMMAND. Not really sure what this one means, but it's something!
+| = PIPING. SENDS OUTPUT FROM FIRST COMMAND AS INPUT FOR SECOND COMMAND. Ie: ls -la1 | grep 'Penis' PRINTS BIG ASS LIST AND SENDS IT TO GREP, A SEPERATE PROGRAM, WHICH THEN SEARCHES FOR 'Penis' IN LS'S
+    >>>OUTPUT.
+&& = 'AND'. DO TWO DIFFERENT, SEPERATE ACTIONS IN ONE COMMAND YOU CHEEKY SOD.
+ 
+GROUPING OPTIONS: ls -la. l and a are 2 options. OR ls -l -a. Another example: cp -vn OR cp -v -n
+WILDCARD: ULTRA POWERFUL, SO PAY ATTENTION.
+    >>When it comes to moving, copying or whatever a whole bunch of files with the same name, use *. It basically means "And whatever else".
+    >>Ie: I try to move some Assassin's Creed music into a AC folder:
+    >> mv Assassins_Creed* ./ACFolder
+    >>This will move anything starting with "Assassins_Creed" followed by "anything else"
+    >>Can work backwards too: Wanna move mp3 files?
+    >>mv *.mp3 ./ACFolder
+    >>That moves "whatever else" .mp3 to the specified folder. It's valid so long as it ends in Mp3.
+    >>You can do it for stuff in the middle as well.
+    >>mv *Who_Knows* ./ACFolder
+    >>That will ONLY move items with the characters "Who_Knows" SOMEWHERE amid the title. "Whatever Else"-"Who_Knows"-"Whatever Else"
+    >>Finally, you can use it to adress everything in the whole directory
+    >> rm *
+    >>The following DELTES FUCKING EVERYTHING in the current directory, since everything files true for "Whatever Else".
+ 
+>>>clear - cleans the terminal of all the BULLSHIT you did ya dick.
+ 
+>>>cd - Change Directory. [NOT ONE FOLDER AT A TIME.If you need to go to home/penis/fuck/urmom, you can't do cd home, cd penis, cd fuck, cd urmom. You HAVE to use the ./ operator.
+               QUICK RUNDOWN:
+               ./ - MEANS "THIS DIRECTORY"
+               ../ - MEANS "PREVIOUS DIRECTORY"
+               Therefore and thusly, you'd need to do this: cd home, cd ./peni,. cd ./fuck, and then cd./urmom. Or, just do this: cd home/penis/fuck/urmom. You'll go stright there.]
+ 
+>>>less - Reads .txt files all nice like. EX: less Janus.txt
+ 
+>>>cat - Shittier version of less. EX: cat Janus.txt
+ 
+>>>pico - Edits text documents all nice like. EX: pico Janus.txt. OR just pico. Opening pico lets you make text documents...in the directory you're currently in.
+      BIG OL TIP: When you exit, you'll be prompted to save. Save as .cc if you're doing a C++ program.
+ 
+>>>g++ - Compiles .cc files.
+     OPTIONS:
+     -o = "Output". Lets you specify a name for the .out file. EX: g++ -o FuckThisShitImOut BabbysFirstProgram.cc (Command, Options, Target. REMEMBER.)
+     -std=c++11 = FORCE c++11. Necessary if you want to initialize a variable AND give it a value. Actually, fuck that, this is goddamn vital.
+ 
+>>>vim - C++ writer.
+     INSTRUCTIONS:
+     To begin: INSERT and ENTER
+     PRESS ESCAPE to enter command mode and INSERT to enter edit mode.
+     IN EDIT MODE: Press INSERT again to type in replacement mode. It sucks.  Basically, don't hit INSERT while in edit mode.
+     IN COMMAND MODE: Hit SHIFT+; (So, basically, type a colon. : <- This Thing.) to input a command.
+     COMMANDS:
+     :w - Saves the code. Type :w FILENAME.cc to specify a filename. IE: :w JanusOrgySimulator2020.cc.
+     :x - Saves and Exits code.
+     SAVING AS .CC WILL MAKE TEXT HAVE PWETTY COLORS. owo
+ 
+>>>cp - Copy File. EX: cp Janus.txt JanusAgain.txt. cp FILE1 FILE2. File1 is copied with the name File2. If the name File2 already exists, ie I've already got a "JanusAgain.txt", then the old File2 is
+    replaced with the new file 2.
+    TIDBIT: You can specify WHERE the copy goes. cp FILE1 DIRECTORY. So, like this: cp Janus.txt home/penis/urmom. Then, the Janus copy will go to urmom.
+    ANOTHER TIDBIT: You don't have to copy only files in the same directory. Fuck it, just do this: cp data/PMD/Janus.txt home/penis/urmom. COMMAND, PATH TO SOURCE, DESTINATION DIRECTORY.
+    OPTIONS:
+    -v = Details what the terminal is doing. Good if you're a FUCKING NERD.
+    -n = The copying will not overwrite anything. Noice.
+ 
+>>>ls - List everything. Lists directories, .exes, everything.
+    OPTIONS:
+    -l = Gives more details on everything
+    -a = Shows hidden files.
+ 
+>>>mv - Move a thing. IE: mv Janus.txt -t  home/penis/ComeEreJanusss. COMMAND, SOURCE, DESTINATION.
+    OPTIONS (Sort of):
+    -t = Destination. Kind of non-optional, actually. Sort of need this.
+ 
+>>>rm - Remove a thing. IE rm JunkData.txt. Easy peasy.
+    OPTIONS:
+    -f = FORCE. Ignores weird stuff that would just waste your time and doesn't prompt. Just fucking, you know...does it.
+    -v = VERBOSE. Explains everything that's going on.
+ 
+>>>mkdir - Make Directory. IE mkdir ./PENIS. You have to specifcy where the directory is (Hence, the ./) so you can make a new directory anywhere FROM anywhere.
+ 
+>>>rmdir - Remove Directory AND EVERYTHING IN IT. AHHAHAHAHAHAHAH *faps*. IE: rmdir ./LiterallyFuckThisDirectory
+ 
+>>>sudo - Comes before command. SUPERUSER DO, giving extended permissions. IE: sudo ls /home/superdupersecretfiles/MEME_DATABASE
+      REQUIRES PASSWORD.
+ 
+>>>alsamixer - opens the alsamixer, a gui program for sound inputs and outputs
+ 
+>>>pasuspender - Suspends PulseAudio for specific programs in case its acting like a cunt. IE: pasuspender mumble
+ 
+>>>apt-get - Gets stuff from the main package. If it ain't in the main package, you'll need to nab it from online...not sure how to do that yet.
+         OPTIONS (kind of not really)
+         apt-get update = updates all the packages
+ 
+>>>install - installs a package. Used in conjunction with apt-get, usally. IE apt-get install mumble. REQUIRES SUDO.
+ 
+>>>man - sees the manual for...everything. No, really. EVERYTHING. IE: man mumble. man help. man man. man mkdir.
+ 
+>>>help - not very helpful.
+ 
+>>>xdg-open - Will open a file with its default program. ie: xdg-open JanusNoms.docx
+ 
+>>>tar - Will unpack tar and bz2 files.
+     FORMAT: tar -OPTIONS file.tar.bz2/gz -C /path/to/directory
+     OPTIONS:
+     x - extracts the files
+     t - lists items inside of an archive
+     -C - Change to directory. I USE IT AT THE END TO EXTRACT TO SPECIFIC DIRECTORIES. But I assume this can applied to other stuff to...
+     f - use archive file or device ARCHIVE (whatever that means. Used in the xfj for tar.bz2 because MAGIC *snort snort*)
+     j - deals with bzip2. Basically use this if you're doing stuff to a bz2 file.
+     z - deals with gzip. Basically use THIS if you're doing stuff to a .gz file.
+ 
+>>>dpkg - Opens a package (.deb) file.
+      OPTIONS:
+      -i = INSTALL. (Please to reccomend)
+ 
+***RUNNING PROGRAMS***
+ 
+Nine times out of ten, you can just...run it.
+Like, for STEAM? Just type "Steam". Or just type "Mumble".
+Gotta learn all the different execution names that terminal uses.
+ 
+mumble - STARTS MUMBLE
+ 
+pasuspend mumble - if you actually want to talk to people
+ 
+steam - STEAM
+ 
+chromium-browser - Why they added "browser", I have no idea. Opens chromium.
+ 
+mplayer - The movie player. UNKNOWN FORMAT. LOOK INTO.
+ 
+youtube-dl - Downloads Youtube videos.
+        >>FORMAT
+            youtube-dl [URL]
+        >>FORMAT FOR MP3
+            youtube-dl -x --audio-format mp3 [URL]
+ 
+            >> -x = Extract Audio
+            >> --audio-format [FORMAT]
+                >>can do: mp3 mp4 oog, all that. Noice. Nifty
+ 
+        >>NOTE: WILL DOWNLOAD TO HOME FOLDER.
+ 
+audacity - Opens up audacity
+        >>NOTE. PULSE AUDIO ACTS LIKE A BITCH AGAIN. Run with following command:
+            env PULSE_LATENCY_MSEC=30 audacity &
+        >>BE SURE NO OTHER PROGRAM IS USING PULSE AUDIO. This will, I guess, lock Pulse' latency so it won't make Audacity go haywire.
+        >>MAKE SURE AUDACITY OUTPUT DEVICE IS SET TO: >>> HDA INTEL: ALC1200 Analog (hw: 0,0) <<<
+        >>BECUASE THIS FIX NEEDS AND HW...WHATEVER THAT IS...
+ 
+***SYSTEM PROGRAMMING***
+^^^ FOR YOUR CLASS, DUMBASS ^^^
+ 
+>>> grep - Lets you find text patterns in...anything. Pipe ( | ) another program's output into this in order to find just what you need.
+        OPTIONS:
+        -e = Basically says "Also try and find this". So, usage: grep -e 'This' -e 'Also that
+        NOTE: Put things you want to find in quotes. This program is better used in tandem with other program's output...or txt files in you're a FUCKING NERD.
+ 
+>>> ps - displays current processes.
+ 
+>>> jobs - Active and suspended programs are printed.
+ 
+>>> chmod - changes permissions for a file. Best used with ls -l...because that displays a file with its permissions.
+        USAGE:
+        chmod [group][Add or Remove][Permission Type] [File in Question]
+       
+        Permissions are broken up into 3 groups: Users, Leader Groups, Others. Using ls -l, you can see the format:
+ 
+            rwxrwxrwx
+            In which:
+           
+            rwx rwx rwx
+            ^^^ ^^^ ^^^
+            User    Group   Others
+           
+            There's also one other value before these 9, but who gives a fuck about it. (For now...)
+ 
+        These letters are either on or off, like here: Writing is turned off for User but not Group (Haphazard, but shut up, it's an example.)
+ 
+            r-xrwxrwx
+ 
+        Here's what it'll probably look more like:
+ 
+            rwxr--r--
+       
+        Where everyone else can only read. Only the USER may execute and write!
+ 
+            >>>GROUPS: [This addresses which of the three parts of the permission values we're dealing with when changing permissions]
+                u = 'User'. That means you, dumbass.
+                g = 'Leader Group'. I guess that means other users on the computer.
+                o = 'Others'.
+                a = 'All'. Changes the value for everyone.
+ 
+            >>>Add or Remove:
+                + = Turns on the Permission
+                - = Turns off the Permission.
+           
+            >>>Permission Type: [What Permission are we messing with?]
+                r = Read. I can see what's on it.
+                w = Write. I can change it.
+                x = Executable. I can activate it...which is required to read most of the time. Hey, it's a relic, cut it a break.
+ 
+        Example format:
+ 
+        chmod g-r JanusPornStory.txt
+       
+        This makes it to where the Leader Group can't read my super secret Janus smut. Thank god.
