@@ -1,0 +1,49 @@
+Data Mining Log
+
+Imported the data and just doing some initial readings on it. Trying to get a feel for what to expect as far as correlations are concerned.
+From initial impressions of the data, I can see a lot of dependent attributes, mainly due to these attributes being optional “follow-up” questions.
+May need to do some binning on the income to get various levels of wealth, maybe to also judge the various levels of success..
+Not everybody on the survey has a career in coding, some people just code for a hobby and have a different job. Im thinking I should not count their income unless they have a career in coding, otherwise it will skew my data.
+Selected only attributes which will be useful. Filtered the rows to where I only get information for citizens who live in the United States, they can still be from a different country, but I want them to be employed in the US.
+I’ve decided to only gather the information of whether they do bootcamp/podcasts and not which specific ones they do. It seems like something I could delve into later, but for this project in this limited time, I think just the basic knowledge will do.
+Having a lot of issue trying to bin my income numerical into a categorical. I want to split it into predetermined categories of success.
+Tried out Correlation matrix, a lot of values to look at and some obvious correlations, really need to get my income categorical.
+I realized after many failed attempts of binning that my issue started with my initial addition of the data to the Repository. I just assumed that all of the attributes data types were correct by default, but it was setting a lot of them to polynomial since the csv used “NA” on the integer type fields, like income. I have had to go through and change EVERY integer attribute to actually be an integer so that the discretize functions will even recognize them.
+Managed to categorize my income based on 50k increments. Up to 200k.
+Split my data into an 80:20 and first tried out k-NN to see how well we can predict income level.
+It seems like that I am unable to make any sort of prediction towards anything higher than 100k, after viewing this I am thinking I should add a Suc0 for people who make 0 income.
+Also need to clear out the people who do not actually have a career in coding, noticed that some of the people have other careers.
+That last run was using income as the class label, just to see, I want to run it based on education level.
+We seem to be best at guessing bachelor’s degree, I think that is due to the sheer amount of bachelors degree examples.
+I’ve realized at this point I only have 5,010 examples to relate 96 attributes. Need to reduce that dimensionality further.
+On a second glance, I noticed that I had not taken care of my missing values, so I ran k-NN after replacing the missing values with the averages and I got better predictions.
+Percentage gain on education level as well.
+Now I am trying to test using the decision tree model. But I seem to be running into the issue where it is claiming that Income has missing values, even though I am using the Replace Missing Value operator to replace with the average. I tried to make a seperate Replace Missing Values that would replace missing income with 0, but it was still running into errors.
+Going to change course for a bit, now I will try using Naive Bayes.
+Did not work as well as k-NN, lower accuracy.
+I went back and tested figured out that I needed to set role AFTER I replace the missing values, it caused issues the other way around.
+So after testing on Decision tree I got a 75% accuracy!! Thats incredible!
+MY initial tree looks as such:
+None of these are predicting Suc4(150,000 ? 200,000), also I want to rid of Expected Earnings, as that seems trivial now.
+Tested again, now I see that people with a long commute time and who served in the military tend to be Suc3, which is very successful.
+
+Going to now test on purely the users who do not have a degree as well as being a software dev who did not leave their income “blank”.
+
+
+
+Accuracy is now at 66% but we can make some crazy connections using that Decision Tree.
+
+Realized that I have been giving my training data set the 20% and the testing 80%… wow. 
+
+Im getting a lot based on age, going to try without age. 
+
+I can see from there that MonthsProgramming plays heavily.
+Implemented a Correlation matrix.
+Noticed that MonthsProgramming had the greatest correlation on Income (.356)
+With age as the second greatest at a close (.313)
+Financial Independents at (.194), may be that with more money come more people.
+Now I want to test with degrees included.
+Even with the addition of people who have college degrees, Months Programming still seems to be the strongest correlation to Income.(.328)
+Degree actually has a negative correlation (-.063)
+At this point, I think I am ready to start making some final inferences.
+

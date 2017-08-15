@@ -1,0 +1,29 @@
+LAB2 EXERCISE
+
+Q1:
+
+SELECT s.name, t.grade FROM students s, take t WHERE t.SID = s.SID and t.grade > 3.0;
+
+Q2:
+
+SELECT AVG(grade and professoreval) AS average FROM take ORDER BY average ASC;
+//this is wrong, I couldn’t figure out how to do this one from purely the sheet.
+
+Q3:
+
+SELECT name FROM students s, (SELECT * FROM take) t WHERE t.SID = s.SID AND t.deptname = 'Education Department' AND t.coursenum = '101';
+
+Q4:
+
+SELECT coursenum FROM courses c WHERE NOT EXISTS ( SELECT coursenum FROM prereq p WHERE p.coursenum = c.coursenum);
+
+Q5:
+
+SELECT coursenum FROM courses c WHERE EXISTS ( SELECT coursenum FROM prereq p WHERE p.coursenum = c.coursenum);
+
+
+
+
+
+
+
